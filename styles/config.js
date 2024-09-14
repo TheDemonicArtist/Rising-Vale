@@ -20,6 +20,7 @@ let sheetPages = {
     faq: "faq",
     staff: "mods",
     updates: "updates",
+    dragonlist: "dragon list",
 
 }
 
@@ -62,6 +63,21 @@ let options = {
 
     },
 
+    /* Dragon Reference List
+    /* --------------------------------------------------------------- */
+    dragonlist: {
+
+        sheetPage: sheetPages.dragonlist,
+
+        itemAmount: 12,
+        itemOrder: "alph",
+
+        filterColumn: 'from',
+        searchFilterParams: ['ID', 'Species', 'Artist', 'Availability'],
+        fauxFolderColumn: 'rarity',
+
+    },
+
 
     /* Item Catalogue
     /* --------------------------------------------------------------- */
@@ -70,7 +86,7 @@ let options = {
         sheetPage: sheetPages.items,
     
         itemAmount: 24,
-        itemOrder: "asc",
+        itemOrder: "Desc",
     
         filterColumn: 'Rarity',
         searchFilterParams: ['Item'],
@@ -79,7 +95,7 @@ let options = {
     },
 
 
-    /* Invetory
+    /* Inventory
     /* --------------------------------------------------------------- */
     inventory: {
 
