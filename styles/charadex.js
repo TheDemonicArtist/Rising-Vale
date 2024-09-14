@@ -437,7 +437,7 @@ const masterlist = async (options) => {
     if (charadexInfo.fauxFolderColumn) sheetArray = fauxFolderButtons(sheetArray, charadexInfo.fauxFolderColumn);
 
     // Reverse based on preference
-    charadexInfo.itemOrder == 'asc' ? sheetArray.reverse() : '';
+    charadexInfo.itemOrder == 'asc' ? sheetArray.reverse() : '';'alph' ? sheetArray.sort((a, b) => a.species.toLowerCase().localeCompare(b.species.toLowerCase())): '';
 
     // Add card links to the remaining array
     for (var i in sheetArray) { 
