@@ -11,7 +11,7 @@ let urlParams = new URLSearchParams(window.location.search);
 /* Load Header and Footer
 ======================================================================= */
 $(function () {
-    $(".load-html").each(function () {$(this).load(this.dataset.source)});
+    $(".load-html").each(function () { $(this).load(this.dataset.source) });
 });
 
 
@@ -72,7 +72,7 @@ let optionSorter = (options) => {
     }
 
     // Merge options
-    let mergedOptions = {...userOptions, ...defaultOptions};
+    let mergedOptions = { ...userOptions, ...defaultOptions };
 
     return mergedOptions;
 
@@ -86,10 +86,16 @@ let sheetPage = (id, pageName) => {
     return `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&headers=1&tq=WHERE A IS NOT NULL&sheet=${pageName}`
 };
 
+let fetchSheet2 = async (page, sheet = galleryID) => {
+    const JSON = await fetch(sheetPage(sheet, page)).then(i => i.text());
+    return scrubData(JSON);
+}
+
 let fetchSheet = async (page, sheet = sheetID) => {
     const JSON = await fetch(sheetPage(sheet, page)).then(i => i.text());
     return scrubData(JSON);
 }
+
 
 let keyCreator = (key) => {
     return key.toLowerCase().replace(/\s/g, "");
@@ -161,6 +167,28 @@ let sheetArrayKeys = (arr) => {
     if (itemArray.indexOf('cardlinkalt')) itemArray[itemArray.indexOf('cardlinkalt')] = { name: 'cardlinkalt', attr: 'href' };
     if (itemArray.indexOf('link')) itemArray[itemArray.indexOf('link')] = { name: 'link', attr: 'href' };
     if (itemArray.indexOf('image')) itemArray[itemArray.indexOf('image')] = { name: 'image', attr: 'src' };
+    if (itemArray.indexOf('icon')) itemArray[itemArray.indexOf('icon')] = { name: 'icon', attr: 'src' };
+    if (itemArray.indexOf('image1')) itemArray[itemArray.indexOf('image1')] = { name: 'image1', attr: 'src' };
+    if (itemArray.indexOf('image2')) itemArray[itemArray.indexOf('image2')] = { name: 'image2', attr: 'src' };
+    if (itemArray.indexOf('image3')) itemArray[itemArray.indexOf('image3')] = { name: 'image3', attr: 'src' };
+    if (itemArray.indexOf('image4')) itemArray[itemArray.indexOf('image4')] = { name: 'image4', attr: 'src' };
+    if (itemArray.indexOf('image5')) itemArray[itemArray.indexOf('image5')] = { name: 'image5', attr: 'src' };
+    if (itemArray.indexOf('image6')) itemArray[itemArray.indexOf('image6')] = { name: 'image6', attr: 'src' };
+    if (itemArray.indexOf('image7')) itemArray[itemArray.indexOf('image7')] = { name: 'image7', attr: 'src' };
+    if (itemArray.indexOf('image8')) itemArray[itemArray.indexOf('image8')] = { name: 'image8', attr: 'src' };
+    if (itemArray.indexOf('image9')) itemArray[itemArray.indexOf('image9')] = { name: 'image9', attr: 'src' };
+    if (itemArray.indexOf('image10')) itemArray[itemArray.indexOf('image10')] = { name: 'image10', attr: 'src' };
+    if (itemArray.indexOf('image11')) itemArray[itemArray.indexOf('image11')] = { name: 'image11', attr: 'src' };
+    if (itemArray.indexOf('image12')) itemArray[itemArray.indexOf('image12')] = { name: 'image12', attr: 'src' };
+    if (itemArray.indexOf('pixel1')) itemArray[itemArray.indexOf('pixel1')] = { name: 'pixel1', attr: 'src' };
+    if (itemArray.indexOf('pixel2')) itemArray[itemArray.indexOf('pixel2')] = { name: 'pixel2', attr: 'src' };
+    if (itemArray.indexOf('header')) itemArray[itemArray.indexOf('header')] = { name: 'header', attr: 'src' };
+    if (itemArray.indexOf('theme')) itemArray[itemArray.indexOf('theme')] = { name: 'theme', attr: 'id' };
+    if (itemArray.indexOf('themecard')) itemArray[itemArray.indexOf('themecard')] = { name: 'themecard', attr: 'id' };
+    if (itemArray.indexOf('themeheader')) itemArray[itemArray.indexOf('themeheader')] = { name: 'themeheader', attr: 'id' };
+    if (itemArray.indexOf('themebg')) itemArray[itemArray.indexOf('themebg')] = { name: 'themebg', attr: 'id' };
+    if (itemArray.indexOf('themefooter')) itemArray[itemArray.indexOf('themefooter')] = { name: 'themefooter', attr: 'id' };
+    if (itemArray.indexOf('themebutton')) itemArray[itemArray.indexOf('themebutton')] = { name: 'themebutton', attr: 'id' };
     return itemArray;
 };
 
@@ -283,7 +311,7 @@ let fauxFolderButtons = (array, fauxFolder, params = urlParams) => {
 let prevNextLinks = (array, url, params, currParam, key, altkey = false) => {
     if ($("#entryPrev").length != 0) {
 
-        let index = array.map(function (i) {return i[key];}).indexOf(currParam.get(key));
+        let index = array.map(function (i) { return i[key]; }).indexOf(currParam.get(key));
         let leftItem = array[index - 1];
         let rightItem = array[index + 1];
 
@@ -393,6 +421,84 @@ const charadexLarge = async (options) => {
 
 
 /* ==================================================================== */
+/* Charadex w/ Gallery and Cards
+======================================================================= */
+const charadexGallery = async (options2) => {
+
+    // Sort through options
+    const charadexInfo = optionSorter(options2);
+
+    // Grab the sheet
+    let sheetArray = await fetchSheet2(charadexInfo.sheetPage);
+
+    // Grab all our url info
+    let cardKey = Object.keys(sheetArray[0])[0];
+    let preParam = urlParamFix(cardKey, charadexInfo.fauxFolderColumn);
+
+    // Create faux folders
+    // Filter through array based on folders
+    if (charadexInfo.fauxFolderColumn) sheetArray = fauxFolderButtons(sheetArray, charadexInfo.fauxFolderColumn);
+
+    // Reverse based on preference
+    charadexInfo.itemOrder == 'asc' ? sheetArray.reverse() : '';
+
+    // Add card links to the remaining array
+    for (var i in sheetArray) { sheetArray[i].cardlink = baseURL + preParam + sheetArray[i][cardKey]; }
+
+    // Decide if the url points to profile or entire gallery
+    if (urlParams.has(cardKey)) {
+
+        // Render the prev/next links on profiles
+        prevNextLinks(sheetArray, baseURL, preParam, urlParams, cardKey);
+
+        // List.js options
+        let itemOptions = {
+            valueNames: sheetArrayKeys(sheetArray),
+            item: 'charadex-card',
+        };
+
+        // Filter out the right card
+        let singleCard = sheetArray.filter((i) => (i[cardKey] === urlParams.get(cardKey)))[0];
+
+        // Render card
+        let charadexItem = new List("charadex-gallery", itemOptions, singleCard);
+
+
+    } else {
+
+
+        // Create the Gallery
+
+        let galleryOptions = {
+            item: 'charadex-entries',
+            valueNames: sheetArrayKeys(sheetArray),
+            searchColumns: charadexInfo.searchFilterParams,
+            page: charadexInfo.itemAmount,
+            pagination: [{
+                innerWindow: 1,
+                left: 1,
+                right: 1,
+                item: `<li class='page-item'><a class='page page-link'></a></li>`,
+                paginationClass: 'pagination-top',
+            }],
+        };
+
+        // Render Gallery
+        let charadex = new List('charadex-gallery', galleryOptions, sheetArray);
+
+        // Make filters workie
+        charadexFilterSelect(charadex, sheetArray, charadexInfo.filterColumn);
+        charadexSearch(charadex, charadexInfo.searchFilterParams);
+
+        // Show pagination
+        showPagination(sheetArray, charadexInfo.itemAmount);
+
+    }
+
+};
+
+
+/* ==================================================================== */
 /* Charadex w/ just Gallery
 ======================================================================= */
 const charadexSmall = async (options) => {
@@ -426,6 +532,7 @@ const masterlist = async (options) => {
     // Grab the sheet
     let sheetArray = await fetchSheet(charadexInfo.sheetPage);
 
+
     // Grab all our url info
     let cardKey = Object.keys(sheetArray[0])[3];
     let cardKeyAlt = Object.keys(sheetArray[0])[0];
@@ -437,12 +544,12 @@ const masterlist = async (options) => {
     if (charadexInfo.fauxFolderColumn) sheetArray = fauxFolderButtons(sheetArray, charadexInfo.fauxFolderColumn);
 
     // Reverse based on preference
-    charadexInfo.itemOrder == 'asc' ? sheetArray.reverse() : '';'alph' ? sheetArray.sort((a, b) => a.species.toLowerCase().localeCompare(b.species.toLowerCase())): '';
+    charadexInfo.itemOrder == 'asc' ? sheetArray.reverse() : ''; 'alph' ? sheetArray.sort((a, b) => a.species.toLowerCase().localeCompare(b.species.toLowerCase())) : '';
 
     // Add card links to the remaining array
-    for (var i in sheetArray) { 
-        sheetArray[i].cardlink = baseURL + preParam + sheetArray[i][cardKey]; 
-        sheetArray[i].cardlinkalt = baseURL + urlParamFix(cardKeyAlt, charadexInfo.fauxFolderColumn) + sheetArray[i][Object.keys(sheetArray[0])[0]]; 
+    for (var i in sheetArray) {
+        sheetArray[i].cardlink = baseURL + preParam + sheetArray[i][cardKey];
+        sheetArray[i].cardlinkalt = baseURL + urlParamFix(cardKeyAlt, charadexInfo.fauxFolderColumn) + sheetArray[i][Object.keys(sheetArray[0])[0]];
     }
 
     // Decide if the url points to profile or entire gallery
@@ -602,6 +709,61 @@ const inventory = async (options) => {
         // Render card
         let charadexItem = new List("charadex-gallery", itemOptions, singleCard);
 
+        // Fetch item info from the item sheet
+        let designSheetArr = await fetchSheet(charadexInfo.designSheetPage);
+        let designArr = [];
+        designSheetArr.forEach((i) => {
+            if (singleCard.username == i.owner) {
+                let designs = {
+                    type: 'Dragons',
+                    item: i.design,
+                    image: i.image,
+                    itemlink: folderURL + "/masterlist.html?design=" + i.design,
+                    name: i.name,
+                };
+                designArr.push(designs);
+            };
+        });
+
+        // Sort items by type if applicable
+        if (charadexInfo.sortTypes) {
+            designArr.sort(function (a, b) {
+                return charadexInfo.sortTypes.indexOf(a.type) - charadexInfo.sortTypes.indexOf(b.type);
+            });
+        };
+
+        // Group by the item type
+        let orderDesigns = Object.groupBy(designArr, ({ type }) => type);
+
+        // Create Rows
+        let rows2 = [];
+        for (var i in orderDesigns) {
+
+            // Get the headers and cols
+            let cols = [];
+            orderDesigns[i].forEach((v) => {
+                let HTML = $("#design-list-col").clone();
+                HTML.find(".design-img").attr('src', v.image);
+                HTML.find(".image").attr('src', v.image);
+                HTML.find(".itemlink").attr('href', v.itemlink);
+                HTML.find(".name").html(v.name);
+
+                cols.push(HTML);
+            });
+
+            // Smack everything together
+            let rowHTML = $("#design-list-section").clone().html([
+                $("#design-list-header").clone().html(i),
+                $("#design-list-row").clone().html(cols)
+            ]);
+
+            rows2.push(rowHTML);
+
+        };
+
+        // Make items show up
+        $("#design-list").html(rows2);
+
 
     } else {
 
@@ -646,34 +808,34 @@ const frontPage = (options) => {
     // Events
     let addEvents = async () => {
         if ($("#prompt-gallery").length != 0) {
-            if ( charadexInfo.numOfPrompts != 0) {
+            if (charadexInfo.numOfPrompts != 0) {
 
                 // Grab dah sheet
                 let events = await fetchSheet(charadexInfo.promptSheetPage);
                 let cardKey = Object.keys(events[0])[0];
-    
+
                 // Sort by End Date
                 let newestEvents = events.sort(function (a, b) {
                     var c = new Date(a.enddate);
                     var d = new Date(b.enddate);
                     return d - c;
                 });
-    
+
                 // Show x Amount on Index
                 let indexEvents = newestEvents.slice(0, charadexInfo.numOfPrompts);
-    
+
                 // Add card link
                 for (var i in indexEvents) { indexEvents[i].cardlink = folderURL + "prompts.html?" + cardKey + "=" + indexEvents[i][cardKey]; }
-    
+
                 // Nyoom
                 let galleryOptions = {
                     item: 'prompt-item',
                     valueNames: sheetArrayKeys(indexEvents),
                 };
-    
+
                 // Render Gallery
                 let charadex = new List('prompt-gallery', galleryOptions, indexEvents);
-    
+
             } else {
                 $("#prompt-gallery").hide();
             }
@@ -736,10 +898,10 @@ const frontPage = (options) => {
         }
     }; addDesigns();
 
-}; 
+};
 
 
 /* ==================================================================== */
 /* Softload pages
 ======================================================================= */
-$(window).on('pageshow',function(){loadPage()});
+$(window).on('pageshow', function () { loadPage() });

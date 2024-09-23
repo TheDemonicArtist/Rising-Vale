@@ -15,55 +15,63 @@ body {
   /* ============================================================= */
   /* Primary Color
   ================================================================ */
-  --cd-primary-color:                    #202020;
+  --cd-primary-color:                    #191a1a;
   --cd-primary-text-color:               #fff;
 
   /* ============================================================= */
   /* Secondary Color
   ================================================================ */
-  --cd-secondary-color:                  #3f4849;
+  --cd-secondary-color:                  #74787d;
   --cd-secondary-text-color:             #fff;
 
   /* ============================================================= */
   /* Backgrounds
   ================================================================ */
-  --cd-body-background-color:            #b8f4ff;
+  --cd-body-background-color:            #977d55;
   --cd-content-background-color:         #282828;
-  --cd-faded-background-color:           #242424;
+  --cd-faded-background-color:           #191a1a;
 
   /* Background Extras */
-  --cd-body-background-image:             url(https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/Header.png);
+  --cd-page-header:                       url(https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/Header.png);
+  --cd-body-background-image:             url(https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/image_2024-09-05_061111591.png);
+  --cd-card-background-image:             url(https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/dark-grey-terrazzo.webp);
+  --cd-card-header-background-image:      url();
+  --cd-button-background-image:           url();
+  --cd-navbar-background-image:           url(https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/dark-grey-terrazzo.webp);
 
   /* ============================================================= */
   /* Text
   ================================================================ */
-  --cd-body-text-color:                  #fff;
-  --cd-faded-text-color:                 #c7c7c7;
+  --cd-body-text-color:                  #adb2b9;
+  --cd-faded-text-color:                 #74787d;
 
   /* ============================================================= */
   /* Borders
   ================================================================ */
-  --cd-border-color:                     rgba(171, 171, 171, 1.0);
+  --cd-border-color:                     #ababab;
+  --cd-outline-outer-color:              #5f5f61;
+  --cd-outline-inner-color:              #878787;
   --cd-border-width:                     2px;
   --cd-border-style:                     solid;
   --cd-border-radius:                    1rem;
+  --cd-shadow-color:                     #000000;
 
   /* ============================================================= */
   /* Navbar
   ================================================================ */
   --cd-navbar-background-color:          #282828;
-  --cd-navbar-brand-color:               var(--cd-body-text-color);
-  --cd-navbar-brand-color-hover:         var(--cd-secondary-color);
-  --cd-navbar-text-color:                #fff;
+  --cd-navbar-brand-color:               var( --cd-body-text-color);;
+  --cd-navbar-brand-color-hover:         var(--cd-faded-text-color);
+  --cd-navbar-text-color:                var( --cd-body-text-color);
   --cd-navbar-link-color:                var(--cd-navbar-text-color);
-  --cd-navbar-link-color-hover:          #c7c7c7;
+  --cd-navbar-link-color-hover:          var(--cd-faded-text-color);
   --cd-navbar-font-family:               var(--cd-header-font-family);
   
   /* ============================================================= */
   /* Main Fonts
   ================================================================ */
   --cd-body-font-family:                 'Montserrat', sans-serif;
-  --cd-header-font-family:               "Berkshire Swash", serif;
+  --cd-header-font-family:               'Comfortaa', sans-serif;
 
 
   /* ============================================================= */
@@ -105,7 +113,7 @@ body {
   /* Link
   ================================================================ */
 
-  --cd-link-text-color:                  #fff;
+  --cd-link-text-color:                  #56acce;
   --cd-link-text-color-hover:            var(--cd-secondary-color);
 
 
@@ -144,7 +152,7 @@ body {
   
   /* Background */
   --cd-card-background-color:            var(--cd-content-background-color);
-  --cd-card-header-background-color:     var(--cd-card-background-color);
+  --cd-card-header-background-color:     var(--cd-faded-background-color);
 
   /* Text */
   --cd-card-header-font-family:          var(--cd-header-font-family);
@@ -194,11 +202,40 @@ body {
   --cd-input-border-radius:              var(--cd-border-radius);
 
 }
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+.normal {mix-blend-mode: normal;}
+.multiply {mix-blend-mode: multiply;}
+.screen {mix-blend-mode: screen;}
+.overlay {mix-blend-mode: overlay;}
+.darken {mix-blend-mode: darken;}
+.lighten {mix-blend-mode: lighten;}
+.color-dodge {mix-blend-mode: color-dodge;}
+.color-burn {mix-blend-mode: color-burn;}
+.difference {mix-blend-mode: difference;}
+.exclusion {mix-blend-mode: exclusion;}
+.hue {mix-blend-mode: hue;}
+.saturation {mix-blend-mode: saturation;}
+.color {mix-blend-mode: color;}
+.luminosity {mix-blend-mode: luminosity;}
+
+.page-header {
+  /* Height */
+  height: calc(25vh);
+  /* Background Junk */
+  background-image: var(--cd-page-header)!important;
+  background-size: cover;
+  background-position: center -150px!important;
+
+}
 
 /* ============================================================= */
 /* General Page Styles
 /* ============================================================= */
+
+.shadowtext {text-shadow: -1px -1px 0 var(--cd-shadow-color), 1px -1px 0 var(--cd-shadow-color), -1px 1px 0 var(--cd-shadow-color), 1px 1px 0 var(--cd-shadow-color);}
+
+.title-small {font-size: 0.70rem}
+.text-small {font-size: 0.75rem}
 
 body {
 
@@ -212,8 +249,8 @@ body {
   background-color: var(--cd-body-background-color);
   background-image: var(--cd-body-background-image);
   background-position: center;
-  background-size: cover;
-
+  background-size: auto;
+  background-attachment: fixed;
 }
 
 
@@ -235,38 +272,51 @@ a:active {
 }
 
 /* ============================================================= */
+/* Header
+/* ============================================================= */
+
+.page-header {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Height */
+  height: calc(25vh + 25px);
+
+  /* Background Junk */
+  background-image: url(../../assets/header.png);
+  background-size: cover;
+  background-position: center -55px;
+  background-color: var(--ml-primary);
+
+  /* Font Style */
+  font-family: var(--ml-header-font);
+  font-size: 4rem;
+  color: white;
+  text-shadow: 4px 4px 0 var(--ml-primary);
+  font-weight: 800;
+  text-align: center;
+
+}
+
+.page-header img {
+  max-width: 70% !important;
+  padding-right: 2rem !important;
+}
+
+/* ============================================================= */
 /* Navbar
 /* ============================================================= */
 .navbar {
   background-color: var(--cd-navbar-background-color) !important;
+  background-image: var(--cd-navbar-background-image);
+  background-blend-mode: normal;
   font-family: var(--cd-navbar-font-family) !important;
   border-width: var(--cd-card-border-width) !important;
   border-style: var(--cd-card-border-style) !important;
   border-color: var(--cd-card-border-color) !important;
   z-index: 2000;
-}
-
-.card:after, .card:before, .navbar:before, .navbar:after, .hero-title:after, .hero-title:before,.card-header:after,.card-header:before, .btn.btn-primary:before, .btn.btn-primary:after {
-  content: "";
-  position: absolute;
-  display: block;
-  pointer-events: none;
-}
-.navbar:before, .card:before {
-  inset: -2px;
-  outline: 5px solid #5f5f61;
-  border-radius: inherit;
-}
-.navbar:after {
-  inset: 7px;
-  outline: 7.5px solid #878787;
-  border-radius: 0;
-}
-
-.card:after {
-  inset: 7px;
-  outline: 7.5px solid #878787;
-  border-radius: .5rem;
 }
 
 .navbar .navbar-brand {
@@ -303,6 +353,28 @@ a:active {
     margin-left: .25rem;
 }
 
+.card:after, .card:before, .navbar:before, .navbar:after, .hero-title:after, .hero-title:before,.card-header:after,.card-header:before, .btn.btn-primary:before, .btn.btn-primary:after {
+  content: "";
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+.navbar:before, .card:before {
+  inset: -2px;
+  outline: 5px solid var(--cd-outline-inner-color);
+  border-radius: inherit;
+}
+.navbar:after {
+  inset: 7px;
+  outline: 7.5px solid var(--cd-outline-outer-color);
+  border-radius: 0;
+}
+
+.card:after {
+  inset: 7px;
+  outline: 7.5px solid var(--cd-outline-outer-color);
+  border-radius: .5rem;
+}
 
 /* ============================================================= */
 /* Dropdowns
@@ -312,11 +384,12 @@ a:active {
 .navbar .dropdown-menu {
   color: var(--cd-navbar-dropdown-link-color) !important;
   background-color: var(--cd-navbar-dropdown-background-color) !important;
+  background-image: var(--cd-navbar-background-image);
+  background-blend-mode: normal;
   border-radius: var(--cd-navbar-dropdown-border-radius) !important;
   border: none;
   margin-top: 0;
 }
-
 
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover{
@@ -423,16 +496,21 @@ a:active {
 
 .card {
   background-color: var(--cd-card-background-color) !important;
+  background-image: var(--cd-card-background-image);
+  background-blend-mode: normal;
   border-width: var(--cd-card-border-width) !important;
   border-style: var(--cd-card-border-style) !important;
   border-color: var(--cd-card-border-color) !important;
   border-radius: var(--cd-border-radius) !important;
-  z-index: 0;
-  position: relative;
+  padding: 2rem 1.5rem 1.5rem;
 }
 
 .card-header {
   background-color: var(--cd-card-header-background-color) !important;
+  background-image: var(--cd-card-header-background-image);
+  color:#fff;
+  background-size: cover;
+  background-position: center;
   border-bottom-color: var(--cd-card-border-color) !important;
   border-bottom-width: var(--cd-card-border-width) !important;
   border-bottom-style: var(--cd-card-border-style) !important;
@@ -448,7 +526,6 @@ a:active {
     border: 2.5px solid #ababab;
     border-radius: .7rem;
 }
-.dvpadding {padding: 2rem 1.5rem 1.5rem;}
 
 
 /* ============================================================= */
@@ -459,6 +536,9 @@ a:active {
 .badge.badge-primary {
   color: var(--cd-button-text-color) !important;
   background-color: var(--cd-button-background-color) !important;
+  background-image: var(--cd-button-background-image);
+  background-size: cover;
+  background-position: center;
   border-width: var(--cd-button-border-width) !important;
   border-style: var(--cd-button-border-style) !important;
   border-color: var(--cd-button-border-color) !important;
@@ -609,11 +689,6 @@ p:last-child {
   max-width: 950px !important;
 }
 
-/* Small container for more compact view */
-.wide-container {
-  max-width: 1200px !important;
-}
-
 /* Prevents awkward load in stutter */
 #charadex-gallery .list .card-body {
   min-height: calc(200px + 2.5rem);
@@ -669,34 +744,55 @@ p:last-child {
 }
 
 .hero-title {
-    color: var(--cd-primary-text-color);
-    background-color: var(--cd-primary-color);
-    border-radius: var(--cd-border-radius);
-    font-family: var(--cd-header-font-family);
-    border: 2.5px solid #ababab;
-    display: flex;
-    padding: 1.5rem;
-    min-height: 250px;
-    font-weight: 800;
-    font-size: 2.5rem;
-    z-index: 0;
+  color: var(--cd-primary-text-color);
+  background-color: var(--cd-primary-color);
+  border-radius: var(--cd-border-radius);
+  font-family: var(--cd-header-font-family);
+  border: 2.5px solid #ababab;
+  display: flex;
+  padding: 1.5rem;
+  min-height: 250px;
+  font-weight: 800;
+  font-size: 2.5rem;
+  z-index: 0;
 }
 
-.hero-title:before,.card-header:before, .btn.btn-primary:before {
-  inset: -2px;
-  outline: 2.5px solid #5f5f61;
-  border-radius: inherit;
-  z-index: 1;
+.card-header:before {
+inset: -2px;
+outline: 2.5px solid #5f5f61;
+border-radius: inherit;
+z-index: 1;
 }
-.hero-title:after,.card-header:after, .btn.btn-primary:after {
-  inset: 1.5px;
-  outline: 2.5px solid #878787;
-  border-radius: .5rem;
+.card-header:after {
+inset: 1.5px;
+outline: 2.5px solid #878787;
+border-radius: inherit
 }
 
 @media (min-width: 768px) {
-    .hero-title {
-        letter-spacing: 2px;
-        font-size: 5rem;
-    }
+  .hero-title {
+      letter-spacing: 2px;
+      font-size: 5rem;
+  }
+}
+
+.sidebar {
+  width: 17%;
+  position: fixed;
+  z-index: 1;
+  top: 400px;
+  left: 10px;
+  padding: 8px 0;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+}
+
+.clock {
+  color: #17D4FE;
+  font-size: 36px;
 }

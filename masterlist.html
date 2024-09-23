@@ -51,7 +51,6 @@
 
 <body>
 
-
     <!-- --------------------------------------------------------------------
     <-- Header
     <-------------------------------------------------------------------- -->
@@ -65,7 +64,7 @@
     <!-- --------------------------------------------------------------------
     <-- Masterlist
     <-------------------------------------------------------------------- -->
-    <div class="container softload masterlist-container" id="main-container">
+    <div class="container-lg softload masterlist-container" id="main-container">
 
 
         <!-- Gallery Container
@@ -166,10 +165,10 @@
 
         <!-- Gallery Items
         ------------------------------------------------------------------- -->
-        <li class="col-lg-3 col-sm-6 p-2 mb-3" id="charadex-entries">
-            <a class="card h-100 cardlink" href="">
-                <h6 class="card-header text-center design"></h6>
-                <div class="card-body d-flex flex-fill">
+        <li class="col-lg-3 col-sm-6 p-2 mb-2" id="charadex-entries">
+            <a class="card h-100 p-2 cardlink" href="">
+                <h6 class="card-header text-center name"></h6>
+                <div class="card-body p-1 d-flex flex-fill">
                     <img class="image img-fluid m-auto" src="" oncontextmenu="return false">
                 </div>
             </a>
@@ -184,29 +183,65 @@
             <div class="card">
 
                 <!-- Header -->
-                <h2 class="card-header text-center p-4">
-                    <a class="cardlink design"></a> (<a class="cardlinkalt" href="">#<span class="id"></span></a>)
+                <h2 class="card-header text-dark text-center p-4">
+                    <a class="cardlink name"></a> (<a class="cardlinkalt" href="">#<span class="id"></span></a>)
                 </h2>
 
 
                 <!--Main Info -->
-                <div class="px-md-5 pt-md-5 p-4">
+                <div class="p-3">
                     
                     <!-- Character Info -->
                     <div class="row no-gutters">
 
-
                         <!-- Image -->
-                        <div class="col-md-5 p-3">
+                        <div class="col-md-5 p-1">
+
+                            <ul class="nav nav-justified row no-gutters mb-1">
+                                <li class="col-md-3 col-6 p-1"><a class="nav-link tabs text-white bg-faded btn active" data-toggle="tab" href="#reg1">Main</a></li>
+                                <li class="col-md-3 col-6 p-1"><a class="nav-link tabs text-white bg-faded btn" data-toggle="tab" href="#reg2">Alt 2</a></li>  
+                                <li class="col-md-3 col-6 p-1"><a class="nav-link tabs text-white bg-faded btn" data-toggle="tab" href="#reg3">Alt 3</a></li>
+                                <li class="col-md-3 col-6 p-1"><a class="nav-link tabs text-white bg-faded btn" data-toggle="tab" href="#reg4">Alt 4</a></li>
+                              </ul>
+                              
+                              <div class="tab-content">
+                                <div class="tab-pane fade active show" id="reg1">
+                                    <div class="mx-auto w-100 text-center" oncontextmenu="return false">
+                                        <img class="image img-fluid" src="">
+                                        <img class="image2 img-fluid" src="">
+                                    </div>
+                                </div>
+                              
+                                <div class="tab-pane fade" id="reg2">
+                                    <div class="mx-auto w-100 text-center" oncontextmenu="return false">
+                                        <img class="image2 img-fluid" src="">
+                                    </div>
+                                </div>
+                              
+                                <div class="tab-pane fade" id="reg3">
+                                    <div class="mx-auto w-100 text-center" oncontextmenu="return false">
+                                        <img class="image3 img-fluid" src="">
+                                    </div>
+                                </div>
+                              </div>
+
+
                             <div class="mx-auto w-100 text-center" oncontextmenu="return false">
-                                <img class="image img-fluid" src="">
+                                <img class="image4 img-fluid" src="">
                             </div>
                         </div>
 
 
                         <!-- Information List -->
-                        <div class="col-md-7 p-3">
+                        <div class="col-md-7 p-1">
 
+                            <ul class="nav nav-justified row no-gutters mb-1">
+                                <li class="col-md-6 col-6 p-1"><a class="nav-link tabs text-white bg-faded btn active" data-toggle="tab" href="#info">Information</a></li>
+                                <li class="col-md-6 col-6 p-1"><a class="nav-link tabs text-white bg-faded btn" data-toggle="tab" href="#logs">Logs</a></li>  
+                              </ul>
+                              
+                              <div class="tab-content">
+                                <div class="tab-pane fade active show" id="info">
                             <!-- Item -->
                             <div class="d-flex justify-content-between mb-2">
                                 <b class="text-muted">Owner</b>
@@ -273,28 +308,31 @@
                                 <div class="pl-3 text-pre notes"></div>
                             </div>
 
-                            <hr>
+                    </div>
 
-                            <!-- Item -->
-                            <div class="">
-                                <b class="text-muted">Transaction Log</b>
-                                <div class="pl-3 pt-2 small" id="log-table">
-                                    <div class="d-none">
-                                        <div class="row no-gutters" id="log-entry">
-                                            <div class="col-md-3"><span class="timestamp"></span></div>
-                                            <div class="col-md-9"><span class="reason"></span></div>
-                                        </div>
-                                    </div>
+            <div class="tab-pane fade" id="logs">
+                <div class="p-3">
+                    <!-- Item -->
+                    <div class="">
+                        <b class="text-center ">Activity Log</b>
+                        <div class=" pt-2 small" id="log-table">
+                            <div class="d-none">
+                                <div class="row no-gutters" id="log-entry">
+                                    <div class="col-md-3"><span class="timestamp"></span></div>
+                                    <div class="col-md-9"><span class="reason"></span></div>
                                 </div>
                             </div>
-
-                            <!-- Add more list items above this line-->
                         </div>
                     </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
                     <!-- Where to Update -->
                     <div class="card bg-faded py-2 px-3 mt-3 small text-center">
-                        <b>If you need to update this entry, please do so <a href="">here</a>.</b>
+                        <b>If you need to update this entry, please do so <a href="https://discord.com/channels/1020305209290928148/1283245947421200425">here</a>.</b>
                     </div>
                 </div>
             </div>
@@ -319,7 +357,7 @@
     <!-- Charadex Script -->
     <script src="styles/config.js"></script>
     <script src="styles/charadex.js"></script>
-    <script>masterlist(options.masterlist);</script>
+    <script>masterlist(options.masterlist);masterlist(options.pokemon);</script>
 
 
 </body>

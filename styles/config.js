@@ -3,6 +3,7 @@
 /* Your sheet ID
 /* ------------------------------------------------------------------- */
 let sheetID = "1qo-A8MCnBepI7G-G4kUe0hQPrtfcOmkySp2kat2ZPas";
+let galleryID = "1MLDeDvcM3AZJWTfd-Q6EmbR_oZRi5eU4dLUQrh1QGoA";
 
 
 /* ------------------------------------------------------------------- */
@@ -20,10 +21,34 @@ let sheetPages = {
     faq: "faq",
     staff: "mods",
     updates: "updates",
-    dragonlist: "dragon list",
+    dragonlist: "dragons",
+    stats: "stats",
+    locations: "locations",
+    gallery: "gallery",
 
 }
 
+/* ------------------------------------------------------------------- */
+/* All sheet pages
+/* ------------------------------------------------------------------- */
+let sheetPages2 = {
+    gallery: "gallery",
+}
+
+let options2 = {
+    /* Prompts
+    /* --------------------------------------------------------------- */
+    gallery: {
+    
+        sheetPage: sheetPages2.gallery,
+
+        itemAmount: 24,
+        itemOrder: "desc",
+
+        searchFilterParams: ['Title','Artists','Tags'],
+    
+    },
+}
 
 /* ------------------------------------------------------------------- */
 /* All Site Options
@@ -68,6 +93,7 @@ let options = {
     dragonlist: {
 
         sheetPage: sheetPages.dragonlist,
+        
 
         itemAmount: 12,
         itemOrder: "alph",
@@ -101,6 +127,7 @@ let options = {
 
         sheetPage: sheetPages.inventory,
         itemSheetPage: sheetPages.items,
+        designSheetPage: sheetPages.masterlist,
         logSheetPage: sheetPages.inventoryLog,
     
         itemAmount: 24,
@@ -116,6 +143,33 @@ let options = {
     prompts: {
     
         sheetPage: sheetPages.prompts,
+
+        itemAmount: 24,
+        itemOrder: "desc",
+
+        searchFilterParams: ['Title'],
+    
+    },
+
+    /* Prompts
+    /* --------------------------------------------------------------- */
+    gallery: {
+    
+        sheetPage: sheetPages2.gallery,
+
+        itemAmount: 24,
+        itemOrder: "desc",
+
+        searchFilterParams: ['Title','Artists','Tags'],
+    
+    },
+
+
+    /* Locations
+    /* --------------------------------------------------------------- */
+    locations: {
+    
+        sheetPage: sheetPages.locations,
 
         itemAmount: 24,
         itemOrder: "desc",
