@@ -63,11 +63,14 @@ let options = {
         promptSheetPage: sheetPages.prompts,
         numOfPrompts: 3,
 
+        updatesSheetPage: sheetPages.updates,
+        numOfUpdates: 6,
+
         staffSheetPage: sheetPages.staff,
         numOfStaff: 8,
 
         masterlistSheetPage: sheetPages.masterlist,
-        numOfDesigns: 4,
+        numOfDesigns: 6,
     
     },
 
@@ -84,7 +87,7 @@ let options = {
 
         filterColumn: 'Design Type',
         searchFilterParams: ['ID', 'Species', 'Owner', 'Designer', 'Artist', 'Traits'],
-        fauxFolderColumn: 'Type',
+        fauxFolderColumn: 'status',
 
     },
 

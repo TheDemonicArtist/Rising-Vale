@@ -818,7 +818,7 @@ const frontPage = (options) => {
                 let newestEvents = events.sort(function (a, b) {
                     var c = new Date(a.enddate);
                     var d = new Date(b.enddate);
-                    return d - c;
+                    return c - d;
                 });
 
                 // Show x Amount on Index
@@ -841,6 +841,43 @@ const frontPage = (options) => {
             }
         }
     }; addEvents();
+
+    // Events
+    let addNews = async () => {
+        if ($("#news-gallery").length != 0) {
+            if (charadexInfo.numOfUpdates != 0) {
+
+                // Grab dah sheet
+                let events = await fetchSheet(charadexInfo.updatesSheetPage);
+                let cardKey = Object.keys(events[0])[0];
+
+                // Sort by End Date
+                let newestEvents = events.sort(function (a, b) {
+                    var c = new Date(a.date);
+                    var d = new Date(b.date);
+                    return c - d;
+                });
+
+                // Show x Amount on Index
+                let indexEvents = newestEvents.slice(0, charadexInfo.numOfPrompts);
+
+                // Add card link
+                for (var i in indexEvents) { indexEvents[i].cardlink = folderURL + "/updates.html?" + cardKey + "=" + indexEvents[i][cardKey]; }
+
+                // Nyoom
+                let newsOptions = {
+                    item: 'news-item',
+                    valueNames: sheetArrayKeys(indexEvents),
+                };
+
+                // Render Gallery
+                let charadex = new List('news-gallery', newsOptions, indexEvents);
+
+            } else {
+                $("#news-gallery").hide();
+            }
+        }
+    }; addNews();
 
     // Staff
     let addStaff = async () => {
@@ -877,7 +914,7 @@ const frontPage = (options) => {
                 let designs = await fetchSheet(charadexInfo.masterlistSheetPage);
 
                 // Filter out any MYO slots, reverse and pull the first 4
-                let selectDesigns = designs.filter((i) => { return i.designtype != 'MYO Slot' }).reverse().slice(0, charadexInfo.numOfDesigns);
+                let selectDesigns = designs.filter((i) => { return i.status != 'Undesigned' }).reverse().slice(0, charadexInfo.numOfDesigns);
 
                 // Add cardlink
                 let cardKey = Object.keys(selectDesigns[0])[0];
