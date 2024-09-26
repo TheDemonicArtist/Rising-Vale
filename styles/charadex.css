@@ -117,6 +117,8 @@ body {
   --cd-link-text-color-hover:            var(--cd-secondary-color);
 
 
+
+
   /* ============================================================= */
   /* HR
   ================================================================ */
@@ -203,6 +205,8 @@ body {
 
 }
 
+.bg-info {background:#56acce!important}
+
 .normal {mix-blend-mode: normal;}
 .multiply {mix-blend-mode: multiply;}
 .screen {mix-blend-mode: screen;}
@@ -234,8 +238,9 @@ body {
 
 .shadowtext {text-shadow: -1px -1px 0 var(--cd-shadow-color), 1px -1px 0 var(--cd-shadow-color), -1px 1px 0 var(--cd-shadow-color), 1px 1px 0 var(--cd-shadow-color);}
 
-.title-small {font-size: 0.70rem}
-.text-small {font-size: 0.75rem}
+.title-small {font-size: 0.70rem!important}
+.text-small {font-size: 0.75rem!important}
+.text-smalls {font-size: .8rem!important;}
 
 body {
 
@@ -244,6 +249,7 @@ body {
   font-family: var(--cd-body-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
 
   /* Global Background */
   background-color: var(--cd-body-background-color);
@@ -253,6 +259,13 @@ body {
   background-attachment: fixed;
 }
 
+.container-bg {
+  max-width: 1800px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /* ============================================================= */
 /* Plain Links
@@ -645,10 +658,6 @@ hr {
   border-top-color: var(--cd-hr-border-color) !important;
   border-top-width: var(--cd-hr-border-width) !important;
   border-top-style: var(--cd-hr-border-style) !important;
-}
-
-img {
-  image-rendering: -webkit-optimize-contrast;
 }
 
 /* Fix any border radiuses that were messed from before */

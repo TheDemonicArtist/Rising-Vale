@@ -718,8 +718,11 @@ const inventory = async (options) => {
                     type: 'Dragons',
                     item: i.design,
                     image: i.image,
+                    species: i.species,
+                    traits: i.traits,
                     itemlink: folderURL + "/masterlist.html?design=" + i.design,
                     name: i.name,
+                    rarity: i.rarity,
                 };
                 designArr.push(designs);
             };
