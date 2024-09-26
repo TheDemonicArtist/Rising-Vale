@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- About Your Site                                                   -->
+    <!-- ----------------------------------------------------------------- -->
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <title>Charadex</title>
+    <meta property="title" content="Charadex" />
+    <meta property="type" content="website" />
+    <meta property="url" content="https://www.charadex.com/" />
+    <meta property="image" content="assets/meta.png" />
+    <meta name="description" content="A tool for organizing small ARPGs and species.">
+
+    <!-- No AI scraping directives -->
+    <meta name="robots" content="noai">
+    <meta name="robots" content="noimageai">
+
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- Styles                                                            -->
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- Bootstrap CSS -->
+    <!-- Using Bootstrap 4.5 because its closest to Toyhou.se's current version -->
+    <!-- https://getbootstrap.com/docs/4.5/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- Optional Styles                                                   -->
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/charadex.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400|Comfortaa:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- --------------------------------------------------------------------
+    <-- Header
+    <-------------------------------------------------------------------- -->
+
+    <div class="load-html" id="header" data-source="includes/header.html"></div>
+
+
+    <!-- Spinner for loading-->
+    <div class="spinner-border m-auto" id="loading"></div>
+
+
+    <!-- --------------------------------------------------------------------
+    <-- Terms
+    <-- I've provided a boiler plate, edit these how you see fit!
+    <-------------------------------------------------------------------- -->
+    <div class="container-bg softload py-md-5 my-4 py-4" id="main-container">
+        <div class="row no-gutters" style="max-width: 1800px;">
+
+            <div class="col-md-3 p-2 ">
+                <div class="p-3 card h-100">
+                    <div class=" py-lg-2 p-lg-3 ">
+                        <!---- side image ---->
+                        <div class="mx-auto rounded text-primary"
+                            style="height:220px; background-image:url('https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/Dragonvale%20Header');background-size:cover;border: 5px solid;">
+                        </div>
+                        <div class="px-lg-0">
+                            <div class="bg-faded text-white mx-1"
+                                style="padding:6px; text-align: center; text-transform: uppercase; border-radius: 35px;margin-top: 20px;margin-bottom: 7px;">
+                                Welcome to the Rising Vale!
+                            </div>
+                            <!--- bio ---->
+                            <div class="bg-faded d-block text-center p-2 mx-1 mt-1 "
+                                style="border-radius:15px;letter-spacing:1px;">An ARPG based on the mobile app
+                                Dragonvale by Backflip Studios</div>
+
+                            <div class="bg-info mt-2"
+                                style="padding:6px; text-align: center;border-radius: 35px;">
+                                <a class="text-white" href="https://discord.gg/w33V2NcyjZ"><h5 class="mb-0">Discord Server</h5></a></div>
+
+                            <div class="mx-1 text-white bg-faded my-2"
+                                style="padding:6px; text-align: center; text-transform: uppercase; border-radius: 35px;">
+                                Links</div>
+
+                            <div class="row no-gutters">
+                                <!--- Left Column ---->
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="creation.html">Creation Guide</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="submissions.html">Submission
+                                        Guide</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="dragonlist.html">Dragonarium</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="items.html">Item Masterlist</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="traits.html">Traits</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="prompts.html">Prompts</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="houses.html">Houses</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="locations.html">Locations</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="mascots.html">Permanent
+                                        Mascots</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="seasonalmascots.html">Seasonal
+                                        Mascots</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="https://toyhou.se/Raccodes">Front
+                                        Page Code</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a class="btn btn-primary text-smalls d-block p-1 mb-1"
+                                        href="https://toyhou.se/~world/123193.rising-vale"> Toyhou.se World</a>
+                                </div>
+                            </div>
+                            <!-- Staff
+            --------------------------------------------------------------------- -->
+                            <div class="mx-1 bg-faded text-white my-2"
+                                style="padding:6px; text-align: center; text-transform: uppercase; border-radius: 35px;">
+                                Staff</div>
+                            <div class="col-md-12 p-2" id="staff-gallery">
+                                <div class="h-100">
+
+                                    <div class="list row no-gutters gallery-row m-n1"></div>
+
+                                    <div class="d-none">
+                                        <div class="col-md-12 gallery-item p-1" id="staff-item">
+                                            <div class="row no-gutters m-n1">
+                                                <div class="col-4 p-1 my-auto">
+                                                    <img class="img-fluid img-thumbnail image" src="">
+                                                </div>
+                                                <div class="col-8 p-1">
+                                                    <a class="d-block mt-2 link text-truncate" href=""><b
+                                                            class="username"></b></a>
+                                                    <span class="badge badge-primary jobtitle"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 p-2">
+                <div class="p-4 card">
+                    <div class="row no-gutters">
+                        <!--------- story and image ---------->
+                        <div class="col-lg-12 p-2">
+                            <!--- image ---->
+                            <div class="text-primary"
+                                style="background-image:url('https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/Dragonvale%20Header'); background-size: cover; background-position: center; border: 5px solid; min-height: 160px; border-radius: 15px; height: 100%;">
+                            </div>
+                        </div>
+                        <!--------- notice ---------->
+                        <div class="col-lg-12 p-2">
+                            <!------->
+                            <div class="bg-faded d-row align-items-center text-white p-2"
+                                style=" border-radius: 15px; font-size: 14pt; flex-direction: row; position: relative;">
+                                <b class="mr-2">Current Season:</b> Fall! Ends November 30th
+                            </div>
+                        </div>
+
+                        <!--------- updates ---------->
+                        <div class="col-lg-6 col-md-6 p-2">
+                            <!------->
+                            <div class="bg-faded text-white p-2 text-uppercase text-center"
+                                style="border-radius: 15px 15px 0 0; font-size: 14pt;">
+                                Updates
+                            </div>
+                            <!------->
+                            <div class="border-0 bg-light p-2"
+                                style="height:223px;overflow:auto; border-radius: 0 0 15px 15px;">
+
+
+                                <div id="news-gallery">
+                                    <div class="h-100">
+                                        <div class="list row no-gutters gallery-row m-n1"></div>
+
+                                        <div class="d-none">
+                                            <div class="col-12 gallery-item p-1 mb-2" id="news-item">
+                                                <h6 class="m-0" style="border-bottom: 1px solid; display: block;">
+                                                    <a class="cardlink title" href=""></a> <span class="date"></span>
+                                                </h6>
+                                                <span class="update"></span>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--------- calendar ---------->
+                        <div class="col-lg-3 col-md-6 p-2">
+                            <!------->
+                            <div class="bg-faded text-white p-2 text-uppercase text-center"
+                                style="border-radius: 15px 15px 0 0; font-size: 14pt; display: block;">
+                                Seasons Calendar
+                            </div>
+                            <!------->
+                            <div class="border-0 bg-light p-2" style="border-radius: 0 0 15px 15px; height: 83%;">
+                                <div class="row no-gutters text-center mb-2">
+
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Winter"><i
+                                            class="fa-solid fa-snowflake"></i> January </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Winter"><i
+                                            class="fa-solid fa-snowflake"></i> February </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Spring"><i
+                                            class="fa-solid fa-seedling"></i> March </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Spring"><i
+                                            class="fa-solid fa-seedling"></i> April </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Spring"><i
+                                            class="fa-solid fa-seedling"></i> May </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Summer"><i
+                                            class="fa-solid fa-sun"></i> June </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Summer"><i
+                                            class="fa-solid fa-sun"></i> July </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Summer"><i
+                                            class="fa-solid fa-sun"></i> August </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Fall"><i
+                                            class="fa-solid fa-ghost"></i> September </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Fall"><i
+                                            class="fa-solid fa-ghost"></i> October </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Fall"><i
+                                            class="fa-solid fa-ghost"></i> November </div>
+                                    <div class="col-6 text-white tooltipster p-1" data-placement="top" title="Winter"><i
+                                            class="fa-solid fa-snowflake"></i> December </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg p-2">
+                            <div class="row no-gutters">
+                                <div class="col-lg-12">
+                                    <!---- deviantart ---->
+                                    <a href="masterlist.html" class="btn bg-faded text-white text-right d-block mt-0"
+                                        style="border-radius: 35px;">
+                                        <i class="fa-solid fa-box-archive"></i> Inventories
+                                    </a>
+                                </div>
+                                <div class="col-lg-12">
+                                    <!---- misc link ---->
+                                    <a href="masterlist.html" class="btn bg-faded text-white text-right d-block mt-2"
+                                        style="border-radius: 35px;">
+                                        <i class="fa-solid fa-list"></i> Masterlist
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <!---- tumblr ---->
+                                    <a href="creation.html" class="btn bg-faded text-white text-right d-block mt-2"
+                                        style="border-radius: 35px;">
+                                        <i class="fa-solid fa-palette"></i> Creation Guide
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <!---- discord ---->
+                                    <a href="dragonlist.html" class="btn bg-faded text-white text-right d-block mt-2"
+                                        style="border-radius: 35px;">
+                                        <i class="fa-solid fa-dragon"></i> Dragonarium
+                                    </a>
+                                </div>
+                                <div class="col-lg-12">
+                                    <!---- instagram ---->
+                                    <a href="locations.html" class="btn bg-faded text-white text-right d-block mt-2"
+                                        style="border-radius: 35px;">
+                                        <i class="fa-solid fa-map-location"></i> Locations
+                                    </a>
+                                </div>
+                                <div class="col-lg-12">
+                                    <!---- twitter ---->
+                                    <a href="faq.html" class="btn bg-faded text-white text-right d-block mt-2"
+                                        style="border-radius: 35px;">
+                                        <i class="fa-solid fa-comments"></i> FAQ
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--- end top content --->
+                    <!--- mid content --->
+                    <div class="row no-gutters">
+                        <!--------- story and image ---------->
+                        <div class="col-lg-4 p-2">
+                            <!--- image ---->
+                            <div class="text-primary"
+                                style="background-image:url('https://file.garden/ZdmRSugxzVCR-8Le/Rising%20Vale/Dragonvale%20Header'); background-size: cover; background-position: center; border: 5px solid; min-height: 160px; border-radius: 15px; height: 100%;">
+                            </div>
+                        </div>
+                        <!--------- story ---------->
+                        <div class="col-lg-8 p-2">
+                            <!------->
+                            <div class="bg-faded text-white p-2 text-uppercase text-center"
+                                style="border-radius: 15px 15px 0 0; font-size: 14pt; display: block;">
+                                About
+                            </div>
+                            <!------->
+                            <div class="border-0 bg-light p-2"
+                                style="height:214px;overflow:auto;border-radius: 0 0 15px 15px;">
+                                <p>Rising Vale is a gacha Discord ARPG based around the mobile app DragonVale, utilizing
+                                    the Mimu bot. While its certainly useful to have at least basic knowledge of the
+                                    game, its by no means required! If you're any familiar with Pokemon ARPGs, many of
+                                    these mechanics may be familiar to you with randomly rolled dragons with chances to
+                                    be traited or hybrids. It follows its own still developing lore and acts more as an
+                                    alternate universe, taking place on the surface under the rule of the Benevolent
+                                    King Bahamut where dragons have split off from wizards to explore the world and
+                                    manage their own lives. While some choose to stay, most have learned to build their
+                                    own society, grand structures, and farms to live off of. All new members start off
+                                    with a common dragon of their choice, a rare dragon of choice, a seasonal mystery
+                                    egg, and 500 Dragoncash! Members are free to make wizards as they please without any
+                                    slots
+                                </p>
+                                <p>Each season has a selection of dragons that get rotated every few months (See Seasons
+                                    Calendar on the front page) based on when they were released in-game, as well as
+                                    seasonal traits that can be earned through seasonal prompts. We have a custom made
+                                    Dragonarium to hopefully help finding the dragon you rolled easier as well as what
+                                    rarity each dragon classifies as! It's still actively being worked on so information
+                                    such as elements & alternate forms may be missing
+
+                                </p>
+                                <p>Our focus is more to have casual fun with your dragons and play how you want rather
+                                    than purely art mechanics. We hope to have a few daily activities for those who may
+                                    not be able to draw constantly, as well as ones for those that do! This may take a
+                                    bit to fully develop however so the beginning will still be mostly art based.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--- end mid content --->
+                    <!--- resource links - use these for bases --->
+                    <div class="row no-gutters">
+                        <div class="col-lg-2 p-1">
+                            <!----------------- NAVIGATION BUTTONS ----- YOU CAN CHANGE THE TEXT ---------------------------------------------------->
+                            <div class="row no-gutters h-100">
+                                <div class="col-lg-12 p-1">
+                                    <!---- deviantart ---->
+                                    <a href="https://dragonvale.fandom.com/wiki/DragonVale_Wiki"
+                                        class="btn bg-faded h-100 text-white text-center d-block mb-2"
+                                        style="border-radius: 15px;">
+                                        Dragonvale Wiki
+                                    </a>
+                                </div>
+                                <div class="col-lg-12 p-1">
+                                    <!---- misc link ---->
+                                    <a href="https://dvlair.com/breeding-simulator"
+                                        class="btn bg-faded h-100 text-white text-center d-block mb-2"
+                                        style="border-radius: 15px;">
+                                        DVlair
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-12 p-1">
+                                    <!---- tumblr ---->
+                                    <a href="https://discord.gg/w33V2NcyjZ"
+                                        class="btn bg-faded h-100 text-white text-center d-block mb-2"
+                                        style="border-radius: 15px;">
+                                        Official Fan Server
+                                    </a>
+                                </div>
+
+                                <div class="col-lg-12 p-1">
+                                    <!---- discord ---->
+                                    <a href="https://dvbox.bin.sh"
+                                        class="btn bg-faded h-100 text-white text-center d-block mb-2"
+                                        style="border-radius: 15px;">
+                                        Dragonvale Sandbox
+                                    </a>
+                                </div>
+                                <div class="col-lg-12 p-1">
+                                    <!---- instagram ---->
+                                    <a href="https://www.reddit.com/r/dragonvale/"
+                                        class="btn bg-faded flex-container h-100 text-white text-center d-block mb-2"
+                                        style="border-radius: 15px;-ms-flex-align: center;">
+                                        r/Dragonvale
+                                    </a>
+                                </div>
+                                <div class="col-lg-12 p-1">
+                                    <!---- twitter ---->
+                                    <a href="https://dragonvale.fandom.com/wiki/Fan-Inspired_Content" class="btn bg-faded h-100 text-white text-center d-block mb-2"
+                                        style="border-radius: 15px;">
+                                        Fan-Inspired Dragons
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--------- mascot info ---------->
+                        <div class="col-lg-6 p-2">
+                            <!------------------------------- SECTION ONE -- BOND LOG --------------------------------->
+                            <div class="p-0">
+                                <!-- Inside Content ------------>
+                                <!------->
+                                <div class="bg-faded text-white p-2 text-uppercase text-center"
+                                    style="border-radius: 15px 15px 0 0; font-size: 14pt; display: block;">
+                                    Getting Started
+                                </div>
+                                <!------->
+                                <div class="bg-light border-0"
+                                    style="max-height: 330px; height:350px; overflow: auto; border-radius: 0 0 15px 15px;">
+                                    <div class="row no-gutters">
+                                        <!--- mascot basics --->
+                                        <div class="col-12 p-1 mt-1">
+
+                                            <!---- mascot story --->
+                                            <p>
+                                                When you enter the Discord you'll be prompted to fill out an
+                                                introduction! once its filled out a mod will give you the member
+                                                role and reward you with your starter bundle. All items and currency
+                                                are tracked and processed through the Mimu Bot while you can find
+                                                your dragons in the masterlist<br>
+                                            </p>
+                                            <!--- divider --->
+                                            <div class="my-2" style="display: block; border-bottom: 1px dashed">
+                                            </div>
+                                            <p>
+                                                To open your starter bundle you can head over to #item-use and enter
+                                                the command "/shop use" and Starter Bundle should show up. Select it
+                                                and send. If entered correctly you'll get a message back saying
+                                                something along the lines of "Welcome to the Rising Vale! You've
+                                                gained 1 Common Dragon Token, 1 Rare Dragon Token, 1 Fall Mystery
+                                                Egg, and 500 Dragoncash! Use /inventory to check your inventory,
+                                                /balance to check your balance, and head over to #⁠item-usage and
+                                                use /shop use to open your mystery egg!"
+                                            </p>
+                                            <!--- divider --->
+                                            <div class="my-2" style="display: block; border-bottom: 1px dashed">
+                                            </div>
+                                            <p>
+                                                While an mod works on getting your dragons added to the masterlist,
+                                                you can participate in a few dailies over in #daily-activities to
+                                                get a bit more extra cash, seasonal currency, or potentially eggs &
+                                                items! These are ways for those who may be busy and cant draw
+                                                constantly to still be able to passively earn currencies.
+                                            </p>
+                                            <!--- divider --->
+                                            <div class="my-2" style="display: block; border-bottom: 1px dashed">
+                                            </div>
+                                            <p>
+                                                While most event related stuff isn't quite ready, we have a few
+                                                mini-prompts for you to go off of for ideas to draw your dragon in
+                                                or fall themed art to earn the fall currency, Spice!
+                                            </p>
+                                            <!--- divider --->
+                                            <div class="my-2" style="display: block; border-bottom: 1px dashed">
+                                            </div>
+                                            <p>
+                                                Lastly, please dont feel bad if you mess something up or need to ask
+                                                questions, its okay! We're all still figuring things out and how it
+                                                works
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- --------------------------->
+                        </div>
+
+                        <!-- Prompts
+            --------------------------------------------------------------------- -->
+                        <div class="col-md-4 p-2" id="prompt-gallery">
+                            <div class="h-100">
+
+                                <div class="bg-faded text-white p-2 mb-2 text-uppercase text-center"
+                                    style="border-radius: 15px 15px 0 0; font-size: 14pt; display: block;">
+                                    Prompts
+                                </div>
+                                <div class="list row no-gutters gallery-row m-n1"></div>
+
+                                <div class="d-none">
+                                    <div class="col-12 gallery-item p-1 mb-2" id="prompt-item">
+                                        <div class="bg-faded p-3">
+                                            <h5 class="m-0">
+                                                <a class="cardlink title" href=""></a>
+                                            </h5>
+                                            <hr class="my-2">
+                                            <div class="row no-gutters small my-n2">
+                                                <div class="col-md-6 p-2 d-flex justify-content-between">
+                                                    <b>Starts</b> <span class="startdate"></span>
+                                                </div>
+                                                <div class="col-md-6 p-2 d-flex justify-content-between">
+                                                    <b>Ends</b> <span class="enddate"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--- end mid content --->
+                </div>
+            </div>
+            <!--- end rows --->
+
+            <!-- Designs
+            --------------------------------------------------------------------- -->
+            <div class="col-md-12 p-1 mt-3" id="design-gallery">
+                <div class="h-100">
+
+
+                    <div class="list row no-gutters gallery-row m-n1"></div>
+
+                    <div class="d-none">
+                        <div class="col-md-2 col-12 gallery-item p-2" id="design-item">
+                            <a class="card h-100 cardlink" href="">
+                                <img class="image img-fluid m-auto" src=""><br>
+                                <span class="card-header text-center name"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--- end rows --->
+    </div>
+    <a class="text-muted" href="https://toyhou.se/BakuCodes" style="text-decoration:none;"><i
+            class="fal fa-code pull-right px-1 py-2"></i></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- --------------------------------------------------------------------
+    <-- Footer
+    <-------------------------------------------------------------------- -->
+
+    <div class="load-html" id="footer" data-source="includes/footer.html"></div>
+
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- JS                                                                -->
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- List.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js" crossorigin="anonymous"></script>
+
+    <!-- Charadex Script -->
+    <script src="styles/config.js"></script>
+    <script src="styles/charadex.js"></script>
+    <script>frontPage(options.index);</script>
+    <script>
+        // create a function to update the date and time
+        function updateDateTime() {
+            // create a new `Date` object
+            const now = new Date();
+
+            let date = new Date();
+            let timezoneOffset = date.getTimezoneOffset();
+            let pstOffset = -480; // this is the offset for the Pacific Standard Time timezone
+            let adjustedTime = new Date(date.getTime() + (pstOffset + timezoneOffset) * 60 * 1000);
+
+            // display the date and time in PST timezone
+            let options = {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                timeZone: 'America/Los_Angeles'
+            };
+            let pstDateTime = adjustedTime.toLocaleString('en-US', options);
+            console.log(pstDateTime); // Output: 2/16/2022, 11:01:20 AM
+
+            // get the current date and time as a string
+            const currentDateTime = now.toLocaleString();
+
+            // update the `textContent` property of the `span` element with the `id` of `datetime`
+            document.querySelector('#datetime').textContent = currentDateTime;
+        }
+
+        // call the `updateDateTime` function every second
+        setInterval(updateDateTime, 1000);
+    </script>
+
+
+</body>
+
+</html>
