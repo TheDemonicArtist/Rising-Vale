@@ -750,6 +750,9 @@ const inventory = async (options) => {
                 HTML.find(".image").attr('src', v.image);
                 HTML.find(".itemlink").attr('href', v.itemlink);
                 HTML.find(".name").html(v.name);
+                HTML.find(".species").html(v.species);
+                HTML.find(".rarity").html(v.rarity);
+                HTML.find(".traits").html(v.traits);
 
                 cols.push(HTML);
             });
