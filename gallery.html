@@ -68,7 +68,7 @@
     <-- Masterlist
     <-------------------------------------------------------------------- -->
     <div class="theme" id="promptTheme">
-    <div class="container-lg softload masterlist-container" id="main-container">
+    <div class="container-bg softload masterlist-container" id="main-container">
 
         <!-- Gallery Container
         ------------------------------------------------------------------- -->
@@ -78,15 +78,36 @@
             ----------------------------------------------------------------- -->
             <div class="card p-md-5 p-4 mb-4">
 
-                <h3 class="mb-0"><a href="gallery.html">Submission Gallery</a></h3>
+                <h3 class="mb-0"><a href="gallery.html">Rising Vale Gallery</a></h3>
+
+                <!-- Faux Folders
+                <-- Remove this if you'd like to make your own buttons instead!
+                ------------------------------------------------------------------- -->
+                <div style="display:none;" id="filter-buttons">
+                    <hr class="mb-3">
+                    <div class="row no-gutters mx-n1"></div>
+                </div>
 
                 <!-- Search Bar -->
                 <div style="display:none;" id="charadex-filters">
                     <hr class="w-100 mb-4">
                     <div class="row no-gutters m-n1">
+
+                        <!-- Custom Filter -->
+                        <div class="col-md-3 col-12 p-1" style="display: none;">
+                            <select class="form-control bg-faded" id="filter"></select>
+                        </div>
+
+                        <!-- Search Filter -->
+                        <div class="col-md-3 col-3 p-1" style="display: none;">
+                            <select class="form-control bg-faded" id="search-filter"></select>
+                        </div>
+
+                        <!-- Search Bar -->
                         <div class="col-md col-9 p-1">
                             <input class="form-control bg-faded search" type="search" placeholder="Search" id="search">
                         </div>
+
                     </div>
                 </div>
 
@@ -131,17 +152,22 @@
 
         <!-- Gallery Items
         ------------------------------------------------------------------- -->
-        <li class="col-md-6 p-2" id="charadex-entries">
-            <a class="card h-100 cardlink" href="">
+        <li class="col-md-3 p-2 mt-3" id="charadex-entries">
+            <a class="card h-100 p-0 cardlink" href="">
                 <div class="card-header text-center">
-                    <h5 class="title mb-0"></h5>
+                    <h6 class="title mb-0"></h6>
                     <span class="eventtype"></span> <span class="category"></span>
                 </div>
-                <div class="card-body p-0 d-flex flex-fill">
+                <div class="card-body p-0 mt-4 d-flex flex-fill">
                     <img class="image img-fluid m-auto" src="" oncontextmenu="return false">
                 </div>
                 <div class="card-footer text-center bg-faded text-light">
-                    <b>Artists:</b> <span class="artists"></span>
+                    <b>Artist(s):</b> 
+                    <span class="pl-1 artist1"></span>, 
+                    <span class="artist2"></span>,
+                    <span class="artist3"></span>,
+                    <span class="artist4"></span>,
+                    <span class="artist5"></span>
                 </div>
             </a>
         </li>
@@ -155,47 +181,48 @@
             <div id="promptTheme" class="card themecard">
 
                 <!-- Header -->
-                <h2 class="card-header text-center p-4 title themeheader"></h2>
+                <h5 class="card-header text-center p-4 title themeheader"></h5>
 
                 <!--Main Info -->
-                <div class="p-md-5 p-4">
+                <div class="mt-4 ">
 
                     <!-- Image -->
                     <div class="text-center" oncontextmenu="return false">
                         <img class="image img-fluid rounded" src="">
                     </div>
-                    <hr>
 
                     <!-- Description -->
-                    <div class="text-pre text-center description"></div>
-                    <hr>
-
+                    <div class="row no-gutters mt-4">
+                        <div class="col-md-7 bg-light p-4">
                     <!-- Description -->
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <div class="text-center" oncontextmenu="return false">
-                                <img class="image2 img-fluid rounded" src="">
-                            </div>
-                        </div>
-                        <div class="col-md-8 text-center">
+                    <div class="text-pre text-left description"></div>
+                </div>
+
+                        <div class="col-md-5 text-center bg-light">
 
                             <!-- Description -->
-                            <div class="row no-gutters">
-                                <div class="col-md-12 px-4 text-left">
-                                    <b>Artists:</b> <span class="pl-2 artists"></span>
+                            <div class="row no-gutters p-4">
+                                <div class="col-md-12 px-4 text-left" >
+                                    <b>Artists:</b> 
+                                    <a class="link1"><span class="p-1 rounded bg-primary artist1"></span></a>, 
+                                    <a class="link2"><span class="p-1 rounded bg-primary artist2"></span></a>,
+                                    <a class="link3"><span class="p-1 rounded bg-primary artist3"></span></a>,
+                                    <a class="link4"><span class="p-1 rounded bg-primary artist4"></span></a>,
+                                    <a class="link5"><span class="p-1 rounded bg-primary artist5"></span></a>
                                 </div>
                                 <div class="col-md-12 px-4 text-left">
-                                    <b>Characters:</b> <span class="pl-2 characters"></span>
+                                    <b>Characters:</b> <span class="pl-1 characters"></span>
                                 </div>
                                 <div class="col-md-12 px-4 text-left">
-                                    <b>Tags:</b> <span class="pl-2 tags"></span>
+                                    <b>Prompt:</b> <span class="pl-1 prompt"></span>
+                                </div>
+                                <div class="col-md-12 px-4 text-left">
+                                    <b>Tags:</b> <span class="pl-1 tags"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr>
 
-                    <a class="btn btn-primary d-block link themebutton" target="_blank" href="">Submissions</a>
 
                 </div>
             </div>
@@ -223,7 +250,7 @@
     <!-- Charadex Script -->
     <script src="styles/config.js"></script>
     <script src="styles/charadex.js"></script>
-    <script>charadexGallery(options.gallery);</script>
+    <script>charadexLarge(options.gallery);</script>
 
 </body>
 
