@@ -3,7 +3,6 @@
 /* Your sheet ID
 /* ------------------------------------------------------------------- */
 let sheetID = "1qo-A8MCnBepI7G-G4kUe0hQPrtfcOmkySp2kat2ZPas";
-let galleryID = "1MLDeDvcM3AZJWTfd-Q6EmbR_oZRi5eU4dLUQrh1QGoA";
 
 
 /* ------------------------------------------------------------------- */
@@ -26,28 +25,6 @@ let sheetPages = {
     locations: "locations",
     gallery: "gallery",
 
-}
-
-/* ------------------------------------------------------------------- */
-/* All sheet pages
-/* ------------------------------------------------------------------- */
-let sheetPages2 = {
-    gallery: "gallery",
-}
-
-let options2 = {
-    /* Prompts
-    /* --------------------------------------------------------------- */
-    gallery: {
-    
-        sheetPage: sheetPages2.gallery,
-
-        itemAmount: 24,
-        itemOrder: "desc",
-
-        searchFilterParams: ['Title','Artists','Tags'],
-    
-    },
 }
 
 /* ------------------------------------------------------------------- */
@@ -158,12 +135,14 @@ let options = {
     /* --------------------------------------------------------------- */
     gallery: {
     
-        sheetPage: sheetPages2.gallery,
+        sheetPage: sheetPages.gallery,
 
         itemAmount: 24,
-        itemOrder: "desc",
+        itemOrder: "asc",
 
-        searchFilterParams: ['Title','Artists','Tags'],
+        filterColumn: 'Prompt',
+        searchFilterParams: ['Title','Tags','Characters','Prompt'],
+        fauxFolderColumn: 'Prompt',
     
     },
 

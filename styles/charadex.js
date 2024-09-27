@@ -166,6 +166,11 @@ let sheetArrayKeys = (arr) => {
     if (itemArray.indexOf('cardlink')) itemArray[itemArray.indexOf('cardlink')] = { name: 'cardlink', attr: 'href' };
     if (itemArray.indexOf('cardlinkalt')) itemArray[itemArray.indexOf('cardlinkalt')] = { name: 'cardlinkalt', attr: 'href' };
     if (itemArray.indexOf('link')) itemArray[itemArray.indexOf('link')] = { name: 'link', attr: 'href' };
+    if (itemArray.indexOf('link1')) itemArray[itemArray.indexOf('link1')] = { name: 'link1', attr: 'href' };
+    if (itemArray.indexOf('link2')) itemArray[itemArray.indexOf('link2')] = { name: 'link2', attr: 'href' };
+    if (itemArray.indexOf('link3')) itemArray[itemArray.indexOf('link3')] = { name: 'link3', attr: 'href' };
+    if (itemArray.indexOf('link4')) itemArray[itemArray.indexOf('link4')] = { name: 'link4', attr: 'href' };
+    if (itemArray.indexOf('link5')) itemArray[itemArray.indexOf('link5')] = { name: 'link5', attr: 'href' };
     if (itemArray.indexOf('image')) itemArray[itemArray.indexOf('image')] = { name: 'image', attr: 'src' };
     if (itemArray.indexOf('icon')) itemArray[itemArray.indexOf('icon')] = { name: 'icon', attr: 'src' };
     if (itemArray.indexOf('image1')) itemArray[itemArray.indexOf('image1')] = { name: 'image1', attr: 'src' };
@@ -303,8 +308,6 @@ let fauxFolderButtons = (array, fauxFolder, params = urlParams) => {
 };
 
 
-
-
 /* ================================================================ */
 /* Prev and Next Links
 /* ================================================================ */
@@ -418,85 +421,6 @@ const charadexLarge = async (options) => {
     }
 
 };
-
-
-/* ==================================================================== */
-/* Charadex w/ Gallery and Cards
-======================================================================= */
-const charadexGallery = async (options2) => {
-
-    // Sort through options
-    const charadexInfo = optionSorter(options2);
-
-    // Grab the sheet
-    let sheetArray = await fetchSheet2(charadexInfo.sheetPage);
-
-    // Grab all our url info
-    let cardKey = Object.keys(sheetArray[0])[0];
-    let preParam = urlParamFix(cardKey, charadexInfo.fauxFolderColumn);
-
-    // Create faux folders
-    // Filter through array based on folders
-    if (charadexInfo.fauxFolderColumn) sheetArray = fauxFolderButtons(sheetArray, charadexInfo.fauxFolderColumn);
-
-    // Reverse based on preference
-    charadexInfo.itemOrder == 'asc' ? sheetArray.reverse() : '';
-
-    // Add card links to the remaining array
-    for (var i in sheetArray) { sheetArray[i].cardlink = baseURL + preParam + sheetArray[i][cardKey]; }
-
-    // Decide if the url points to profile or entire gallery
-    if (urlParams.has(cardKey)) {
-
-        // Render the prev/next links on profiles
-        prevNextLinks(sheetArray, baseURL, preParam, urlParams, cardKey);
-
-        // List.js options
-        let itemOptions = {
-            valueNames: sheetArrayKeys(sheetArray),
-            item: 'charadex-card',
-        };
-
-        // Filter out the right card
-        let singleCard = sheetArray.filter((i) => (i[cardKey] === urlParams.get(cardKey)))[0];
-
-        // Render card
-        let charadexItem = new List("charadex-gallery", itemOptions, singleCard);
-
-
-    } else {
-
-
-        // Create the Gallery
-
-        let galleryOptions = {
-            item: 'charadex-entries',
-            valueNames: sheetArrayKeys(sheetArray),
-            searchColumns: charadexInfo.searchFilterParams,
-            page: charadexInfo.itemAmount,
-            pagination: [{
-                innerWindow: 1,
-                left: 1,
-                right: 1,
-                item: `<li class='page-item'><a class='page page-link'></a></li>`,
-                paginationClass: 'pagination-top',
-            }],
-        };
-
-        // Render Gallery
-        let charadex = new List('charadex-gallery', galleryOptions, sheetArray);
-
-        // Make filters workie
-        charadexFilterSelect(charadex, sheetArray, charadexInfo.filterColumn);
-        charadexSearch(charadex, charadexInfo.searchFilterParams);
-
-        // Show pagination
-        showPagination(sheetArray, charadexInfo.itemAmount);
-
-    }
-
-};
-
 
 /* ==================================================================== */
 /* Charadex w/ just Gallery

@@ -205,6 +205,8 @@ body {
 
 }
 
+.bg-primary {background: var(--cd-primary-color)!important}
+
 .bg-info {background:#56acce!important}
 
 .normal {mix-blend-mode: normal;}
