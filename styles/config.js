@@ -20,7 +20,7 @@ let sheetPages = {
     faq: "faq",
     staff: "mods",
     updates: "updates",
-    dragonlist: "dragons",
+    dragonlist: "dragonarium",
     stats: "stats",
     locations: "locations",
     gallery: "gallery",
@@ -79,7 +79,7 @@ let options = {
         itemOrder: "alph",
 
         filterColumn: 'from',
-        searchFilterParams: ['ID', 'Species', 'Artist', 'Availability'],
+        searchFilterParams: ['ID', 'Species', 'Artist', 'Availability', 'Release Date', 'Elements'],
         fauxFolderColumn: 'rarity',
 
     },
